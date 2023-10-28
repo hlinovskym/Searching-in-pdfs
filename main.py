@@ -3,7 +3,7 @@ import os
 import pandas
 
 PATH = "pdfs/"
-texts = ["words", "to", "find"]
+texts = ["Words", "to", "find"]
 
 files = os.listdir(PATH)
 files_json = []
@@ -37,14 +37,11 @@ for text_to_find in texts:
         results.append(result)
         print(len(result))
 
-    print(results)
-    print(len(results))
-
     results_df = pandas.DataFrame(results)
     files_df = pandas.merge(files_df, results_df,  on=["file"],  how="left")
     # print(results_df)
     # print(files_df)
 
-print(files_df.iloc[0:6, 0:3])
+print(files_df.iloc[0:6, 0:4])
 files_df.to_csv("results/results.csv")
 # files_df.to_csv("results/results_utf-8.csv", encoding="utf-8")
