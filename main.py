@@ -35,7 +35,6 @@ for text_to_find in texts:
             result["file"] = file
             result[text_to_find] = stranky
         results.append(result)
-        print(len(result))
 
     results_df = pandas.DataFrame(results)
     files_df = pandas.merge(files_df, results_df,  on=["file"],  how="left")
